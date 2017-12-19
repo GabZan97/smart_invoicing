@@ -1,0 +1,34 @@
+<% if (params.has_key?(:error_message)) %>
+  <div class='alert alert-warning' id="error_message" onclick="this.remove()"><strong>Warning!</strong> <%= params[:error_message].to_s %> </div>
+<% end %>
+
+<%= form_tag(invoices_pdf_path, method: :post, id: "bill_form", :onsubmit => "ValidateForm();", :html => { :name => 'bill_form' }) %>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+      <th scope="col">Select</th>
+      <th scope="col">Date</th>
+      <th scope="col">Start time</th>
+      <th scope="col">End time</th>
+      <th scope="col">Client</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hours.each do |hour| %>
+      <tr class='table-success'>
+        <td><%= hour.date %></td>
+        <td><%= hour.start_time.strftime('%H:%M') %></td>
+        <td><%= hour.end_time.strftime('%H:%M') %></td>
+        <td><%= link_to "#{hour.client.name}", client_path(hour.client) %></td>
+        <td><%= link_to 'Show', hour %></td>
+        <td><%= link_to 'Edit', edit_hour_path(hour), id:"Edit#{hour.id}" %></td>
+        <td><%= link_to 'Destroy', hour, id: "Destroy[#{hour.id}]", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= submit_tag "Create bill", class: "btn btn-default", style: "float=left" %>
+<br/><br/>

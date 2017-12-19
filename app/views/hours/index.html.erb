@@ -1,0 +1,8 @@
+
+<h1>Hours</h1>
+
+<%= render 'hours/hour_list' %>
+<% if Client.where(user_id: current_user.id).exists? %>
+  <%= link_to 'New Hour', new_hour_path, class: "btn btn-default" %>
+<% end %>
+<%= link_to 'New Client', new_client_path, class: "btn btn-default float-right" %>

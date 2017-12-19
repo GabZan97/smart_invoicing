@@ -1,0 +1,39 @@
+<% if (params.has_key?(:log_in_message)) %>
+  <div class='alert alert-success' id="log_in_message" onclick="this.remove()">
+    <strong>Success!</strong> <%= params[:log_in_message].to_s %>
+  </div>
+<% end %>
+<h1>Clients</h1>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Codice fiscale</th>
+        <th scope="col">Email</th>
+        <th scope="col">Partita iva</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @clients.each do |client| %>
+        <tr>
+          <td  scope="row"><%= client.name %></td>
+          <td><%= client.codice_fiscale %></td>
+          <td><%= client.email %></td>
+          <td><%= client.partita_iva %></td>
+          <td><%= link_to 'Show', client%></td>
+          <td><%= link_to 'Edit', edit_client_path(client) %></td>
+          <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<% if Client.where(user_id: current_user.id).exists? %>
+  <%= link_to 'New Hour', new_hour_path, class: "btn btn-default" %>
+<% end %>
+<%= link_to 'New Client', new_client_path, class: "btn btn-default float-left" %>

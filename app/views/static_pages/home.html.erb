@@ -1,0 +1,31 @@
+<% if (params.has_key?(:log_out_message)) %>
+  <div class='alert alert-success' id="log_out_message" onclick="this.remove()"><strong>Success!</strong> <%= params[:log_out_message].to_s %> </div>
+<% end %>
+<div class="" >
+  <div class="container-fluid">
+    <h1 style="text-align:left">Smart Invoicing</h1>
+    <br/>
+    <% if logged_in? %>
+    <p style="margin-bottom: 30px">
+
+    </p>
+    <div class="row">
+      <div class="col-md-6 col-md-border">
+        <br/>
+        <%= link_to "Manage Clients", clients_path, class: "btn btn-default" %>
+      </div>
+      <div class="col-md-6 col-md-border">
+        <br/>
+        <%= link_to "Manage Hours", hours_path, class: "btn btn-default" %>
+      </div>
+    </div>
+    <% else %>
+    <div class="row">
+      <br/>
+      <%= link_to "Sign Up", signup_path, class: "btn btn-lg btn-primary" %>
+    </div>
+    <% end %>
+  </div>
+
+
+</div>

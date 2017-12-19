@@ -1,0 +1,12 @@
+@media(min-width: 700px) {
+    .col-md-border {
+        &:not(:last-child) {
+            border-right: 1px solid #ffffff;
+        }
+
+        & + .col-md-border {
+            border-left: 1px solid #ffffff;
+            margin-left: -1px;
+        }
+    }
+}

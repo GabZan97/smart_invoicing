@@ -1,0 +1,12 @@
+digraph models_diagram {
+	graph[overlap=false, splines=true, bgcolor="none"]
+	"Invoice" [shape=Mrecord, label="{Invoice|id :INTEGER\lcreated_at :datetime\lupdated_at :datetime\ltotal_amount :float\l}"]
+	"User" [shape=Mrecord, label="{User|id :INTEGER\lname :varchar\lemail :varchar\lcreated_at :datetime\lupdated_at :datetime\lpassword_digest :varchar\ltarif :float\lstreet_name :varchar\lstreet_number :integer\lpostal_code :integer\lcity :varchar\lstate :varchar\l}"]
+	"ApplicationRecord" []
+	"Client" [shape=Mrecord, label="{Client|id :INTEGER\lname :varchar\lcodice_fiscale :varchar\lemail :varchar\lpartita_iva :integer\lcreated_at :datetime\lupdated_at :datetime\luser_id :integer\lstreet_name :varchar\lstreet_number :integer\lpostal_code :integer\lcity :varchar\lstate :varchar\l}"]
+	"Hour" [shape=Mrecord, label="{Hour|id :INTEGER\ldate :date\lstart_time :time\lend_time :time\ldescription :text\lcreated_at :datetime\lupdated_at :datetime\luser_id :integer\lclient_id :integer\lis_fatturata :boolean\linvoice_id :integer\l}"]
+	"Invoice" -> "Hour" [arrowtail=odot, arrowhead=crow, dir=both color="#3E03FD"]
+	"User" -> "Hour" [arrowtail=odot, arrowhead=crow, dir=both color="#FBC96C"]
+	"User" -> "Client" [arrowtail=odot, arrowhead=crow, dir=both color="#B6BBCB"]
+	"Client" -> "Hour" [arrowtail=odot, arrowhead=crow, dir=both color="#01C033"]
+}

@@ -1,0 +1,7 @@
+<%= form_with(model: invoice, local: true) do |form| %>
+  <%= errors_for(@invoice) %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

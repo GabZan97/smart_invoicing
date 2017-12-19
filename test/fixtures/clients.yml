@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  codice_fiscale: MyString
+  email: MyString
+  partita_iva: 1
+
+two:
+  name: MyString
+  codice_fiscale: MyString
+  email: MyString
+  partita_iva: 1

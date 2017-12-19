@@ -1,0 +1,41 @@
+
+<div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Client name</th>
+          <th>Total hour done</th>
+          <th>Total hour billed</th>
+          <th>Total amount paid</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @clients.each do |client|
+            hours_invoiced = Hour.where(client_id: client.id).to_a
+            total_hours = Hour.where(client_id: client.id).to_a
+            invoices_hid = hours_invoiced.uniq.pluck(:invoice_id)
+            invoices = Invoice.where(id: invoices_hid).pluck(:total_amount)
+
+            total_time = 0
+            total_hours.each do |hour|
+              total_time += (hour.end_time - hour.start_time).to_f
+            end
+
+            total_time /= 3600
+            total_time_billed = 0
+            hours_invoiced.each do |hour|
+              total_time_billed += (hour.end_time - hour.start_time).to_f
+            end
+            total_time_billed /= 3600
+         %>
+          <tr>
+            <td><%= link_to client.name, client %></td>
+            <td><%= total_time %></td>
+            <td><%= total_time_billed %></td>
+            <td>€ <%= invoices.reduce(:+) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>

@@ -1,0 +1,49 @@
+<h2>Hour for : <%= @hour.client.name%></h2>
+<div class="container center">
+  <div class="row">
+    <div class="col-md-12">
+        <div class="col-md-6">
+          <p>
+            <strong>Date:</strong>
+            <%= @hour.date %>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <p>
+            <strong>Start time:</strong>
+            <%= @hour.start_time.strftime('%H:%M') %>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <p>
+            <strong>End time:</strong>
+            <%= @hour.end_time.strftime('%H:%M') %>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <p>
+            <strong>Client:</strong>
+            <%= link_to "#{@hour.client.name}", client_path(@hour.client) %>
+          </p>
+        </div>
+        <div class="col-md-12">
+          <hr/>
+        </div>
+        <div class="col-md-4">
+          <p>
+            <%= link_to 'Edit', edit_hour_path(@hour) %>
+          </p>
+        </div>
+        <div class="col-md-4">
+          <p>
+            <%= link_to 'Go to hour list', hours_path %>
+          </p>
+        </div>
+        <div class="col-md-4">
+          <p>
+            <%= link_to 'Go to client list', clients_path %>
+          </p>
+        </div>
+    </div>
+  </div>
+</div>

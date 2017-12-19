@@ -1,0 +1,27 @@
+<h1>Log in</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <% if (params.has_key?(:error_message)) %>
+      <div class='alert alert-warning' id="error_message" onclick="this.remove()"><strong>Warning!</strong> <%= params[:error_message].to_s %> </div>
+    <% end %>
+    <%= form_for(:session, url: login_path) do |f| %>
+
+      <div class="form-group row">
+          <%= f.label :email, class: 'col-sm-2 col-form-label' %>
+        <div class="col-sm-10">
+          <%= f.email_field :email, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+          <%= f.label :password, class: 'col-sm-2 col-form-label' %>
+        <div class="col-sm-10">
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
+      </div>
+      <%= f.submit "Submit", class: "btn btn-default" %>
+    <% end %>
+    <br/>
+    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+  </div>
+</div>

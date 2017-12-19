@@ -1,0 +1,13 @@
+<%
+  @hours_to_bill = Hour.where(invoice_id: @invoice.id).to_a
+  @client = Client.find_by(id: @hours_to_bill.first.client_id)
+  @user = @current_user
+  @new_invoice = @invoice
+%>
+
+<%= render 'invoices/invoice_pdf' %>
+<br/>
+<%= link_to 'Back', invoices_path %>
+<p class="center">
+  <%= link_to 'Create PDF document', document_path(:format => :pdf, :controller => "invoices", :action => "document", :invoice => @new_invoice.id), target: "_blank", class: "btn btn-lg btn-primary"  %>
+</p>

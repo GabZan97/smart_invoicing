@@ -1,0 +1,30 @@
+<h1>Invoices</h1>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Total amount</th>
+        <th>Client name</th>
+        <th>Hours</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @invoices.each do |invoice| %>
+        <tr>
+            <td><%= invoice.id %></td>
+            <td>€ <%= invoice.total_amount %></td>
+            <td><%= link_to "#{invoice.hours.first.client.name}", client_path(invoice.hours.first.client.name)%></td>
+            <td>
+              <% invoice.hours.each do |hour| %>
+                <%= simple_format link_to hour_path(hour.id)%>
+              <% end %>
+            </td>
+            <td><%= link_to 'Show', invoice %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

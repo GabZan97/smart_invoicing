@@ -1,0 +1,33 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Total amount</th>
+        <th>Client name</th>
+        <th>Hours</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @invoices.each do |invoice| %>
+      <%
+        @hours_invoiced = Hour.where(invoice_id: invoice.id).to_a
+        if !@hours_invoiced.blank?
+          @client_of_invoice = Client.find_by id: @hours_invoiced.first.client_id
+        end
+       %>
+        <tr>
+          <td><%= invoice.id %></td>
+          <td>€ <%= invoice.total_amount %></td>
+          <td><%= @client_of_invoice.name if !@hours_invoiced.blank?%></td>
+          <td>
+            <% @hours_invoiced.each do |hour| %>
+              <% concat simple_format hour.description %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,42 @@
+
+<h1><%= @client.name %></h1>
+<div class="container center">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Total amount billed: € <%= @invoices.pluck(:total_amount).reduce(:+) %></h3>
+      <hr/>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+          <div class="col-md-6">
+            <p>
+              <strong>Codice fiscale:</strong>
+              <%= @client.codice_fiscale %>
+            </p>
+          </div>
+          <div class="col-md-6">
+            <p>
+              <strong>Email:</strong>
+              <%= @client.email %>
+            </p>
+          </div>
+          <div class="col-md-6">
+            <p>
+              <strong>Partita iva:</strong>
+              <%= @client.partita_iva %>
+            </p>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr/>
+
+<% if Client.where(user_id: current_user.id).exists? %>
+  <%= link_to 'New Hour', new_hour_path(:client_base_id => @client.id), class: "btn btn-default" %>
+<% end %>
+<%= link_to 'New Client', new_client_path, class: "btn btn-default float-right" %>
+<br/><br/>
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Go to client list', clients_path %>
