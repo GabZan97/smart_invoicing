@@ -1,0 +1,65 @@
+User Stories
+- with PRIORITY and IMPORTANCE from 1 (low) to 4 (high) 
+ 
+As a Client I want to
+Log In in the website with my credentials (so that I can be authenticated)
+PRIORITY:4  IMPORTANCE:3 
+
+As a Client I want to
+Be able to see the detailed paid bills and unpaid ones (so that I can have an history of the paid bills and check the unpaid ones)
+PRIORITY:2  IMPORTANCE:2 
+
+As a Client I want to
+Pay my bills 
+PRIORITY:2  IMPORTANCE:3 
+
+As a Client I want to
+Receive an email when I receive a bill to pay (so that I can't forget to pay my debts)
+PRIORITY:1  IMPORTANCE:2 
+
+As an Admin I want to
+Create my profile and being sure that any field is left blank 
+PRIORITY:3  IMPORTANCE:2 
+
+As an Admin I want to
+Log In in the website with my credentials and get an error message if insert wrong credentials 
+(so that me and my employees can manage the clients)
+PRIORITY:3  IMPORTANCE:4 
+
+As an Admin I want to
+Edit my profile and being notified by an error message if I leave blank fields.
+PRIORITY:1  IMPORTANCE:1 
+
+As an Admin I want to
+Insert a new client by email and automatically generate and send him his credentials, and get error for blank pages
+PRIORITY:3  IMPORTANCE:2 
+  
+As an Admin I want to
+Set the hourly tariff for each client
+PRIORITY:3  IMPORTANCE:4   
+
+As an Admin I want to
+Be able to see the chronology of the paid bills and unpaid ones (so that I can contact the clients who still hasn't paid after the deadline)
+PRIORITY:1  IMPORTANCE:2
+  
+As an Admin I want to
+Add a certain amount of hours of work for a client in a specific date and get a message error if I leave blank fields (so that the system knows how much the client has to pay by the end of the month)
+PRIORITY:3  IMPORTANCE:3 
+  
+As an Admin I want to
+Receive an email when a client doesn't pay a bill by the end of the deadline
+PRIORITY:1  IMPORTANCE:2
+  
+As an Admin I want to
+See the list of all my client
+PRIORITY:3  IMPORTANCE:2 
+ 
+As an Admin I want to 
+Edit client's information, getting message if I leave blank fields
+PRIORITY:1  IMPORTANCE:1 
+
+As an Admin I want to
+Create a bill for a client that I'm working for
+PRIORITY:2  IMPORTANCE:3  
+     
+
